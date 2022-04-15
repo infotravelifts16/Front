@@ -1,0 +1,1 @@
+Instalo React con npx create-react-app@latest front 
