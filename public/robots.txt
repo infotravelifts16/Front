@@ -1,1 +1,5 @@
 Instalo React con npx create-react-app@latest front 
+
+instalo tailwindCss con:
+1) npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+2) npx tailwindcss init -p 
