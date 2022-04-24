@@ -3,3 +3,7 @@ Instalo React con npx create-react-app@latest front
 instalo tailwindCss con:
 1) npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 2) npx tailwindcss init -p 
+
+Para instalar React-Router: 
+npm i react-router-dom instalo para tener rutas en mi sitio
+import { BrowserRouter, Route, Link } from 'react-router-dom';
