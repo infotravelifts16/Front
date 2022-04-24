@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 
 const PaginaPrincipal = () => {
   return(
-    <>
+    <> 
       <NavBar/>
   
   
