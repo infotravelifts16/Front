@@ -7,3 +7,5 @@ instalo tailwindCss con:
 Para instalar React-Router: 
 npm i react-router-dom instalo para tener rutas en mi sitio
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+npm install framer-motion
