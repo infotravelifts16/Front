@@ -1,11 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
-const NavBar = () => {
-  // Boton Menu Despegable
-  const handleSubmitMenu = (e) => {
-    e.preventDefault();
-    console.log("me haces click");
-  };
+const NavBar = () => {  
+  const [isMenuActive, setIsMenuActive] = useState(false)
+ 
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap bg-slate-900 p-6">
@@ -20,15 +17,15 @@ const NavBar = () => {
           </svg>
 
           <a
-            href="https://www.google.com/"
-            className="font-Amatic text-4xl tracking-tight ml-4 cursor-pointer"
+            href="/"
+            className="font-Amatic text-4xl hover:text-teal-200 tracking-tight ml-4 cursor-pointer"
           >
             Infotravel
           </a>
         </div>
         <div className="block lg:hidden">
           <button
-            onClick={handleSubmitMenu}
+            onClick={() => setIsMenuActive(!isMenuActive)}
             id="boton"
             className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
           >
@@ -43,7 +40,7 @@ const NavBar = () => {
         </div>
         <div
           id="menu"
-          className="w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+          className={isMenuActive ? "w-full block flex-grow lg:flex lg:items-center lg:w-auto" : "hidden w-full  flex-grow lg:flex lg:items-center lg:w-auto"}
         >
           <div className="lg:flex-grow text-center text-2xl">
             <a
