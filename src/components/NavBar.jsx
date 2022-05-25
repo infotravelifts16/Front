@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {NavLink} from 'react-router-dom';
 
 const NavBar = () => {  
   const [isMenuActive, setIsMenuActive] = useState(false)
@@ -16,12 +17,12 @@ const NavBar = () => {
             <path d="M8.4 12H2.8L1 15H0V5h1l1.8 3h5.6L6 0h2l4.8 8H18a2 2 0 1 1 0 4h-5.2L8 20H6l2.4-8z" />
           </svg>
 
-          <a
-            href="/"
+          <NavLink 
+            to="/"
             className="font-Amatic text-4xl hover:text-teal-200 tracking-tight ml-4 cursor-pointer"
           >
             Infotravel
-          </a>
+          </NavLink>
         </div>
         <div className="block lg:hidden">
           <button
@@ -59,10 +60,12 @@ const NavBar = () => {
               href="#responsive-header"
               className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200"
             >
-              Blog
+              Contacto 
             </a>
           </div>
           <div className="font-Amatic text-lg text-center flex flex-col lg:flex-row">
+            
+            <NavLink to="/IniciarSesion">
             <div>
               <button
                 type="submit"
@@ -71,6 +74,8 @@ const NavBar = () => {
                 Iniciar Sesión
               </button>
             </div>
+            </NavLink>
+            <NavLink to="/CrearCuenta">
             <div className="ml-5">
               <button
                 type="submit"
@@ -79,6 +84,7 @@ const NavBar = () => {
                 Registrarse
               </button>
             </div>
+            </NavLink>
           </div>
         </div>
       </nav>
