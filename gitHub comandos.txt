@@ -1,0 +1,13 @@
+git init
+git add . 
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/MatiasMinig/Front.git 
+git push -u origin main
+
+
+git remote add origin https://github.com/infotravelifts16/front.git
+
+
+git config --global user.name "MatiasMinig"
+git config --global user.email "matiasminig@gmail.com"
