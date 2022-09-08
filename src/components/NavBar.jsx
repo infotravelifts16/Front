@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
+
 
 const NavBar = () => {  
   const [isMenuActive, setIsMenuActive] = useState(false)
@@ -44,24 +45,32 @@ const NavBar = () => {
           className={isMenuActive ? "w-full block flex-grow lg:flex lg:items-center lg:w-auto" : "hidden w-full  flex-grow lg:flex lg:items-center lg:w-auto"}
         >
           <div className="lg:flex-grow text-center text-2xl">
-            <a
-              href="#responsive-header"
+            <Link
+              to="/QuienesSomos"
               className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-teal-200 mr-4"
             >
               Quienes Somos
-            </a>
-            <a
-              href="#responsive-header"
+            </Link>
+           
+            <Link
+              to="/Sitios"
               className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4"
             >
               Sitios
-            </a>
-            <a
-              href="#responsive-header"
+            </Link>
+            
+            <Link
+              to="/Promociones"
+              className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4"
+            >
+              Promociones
+            </Link>
+            <Link
+              to="/Contacto"
               className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200"
             >
               Contacto 
-            </a>
+            </Link>
           </div>
           <div className="font-Amatic text-lg text-center flex flex-col lg:flex-row">
             
