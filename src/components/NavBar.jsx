@@ -53,13 +53,6 @@ const NavBar = () => {
             </Link>
            
             <Link
-              to="/Sitios"
-              className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4"
-            >
-              Sitios
-            </Link>
-            
-            <Link
               to="/Promociones"
               className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4"
             >

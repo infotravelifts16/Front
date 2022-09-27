@@ -19,11 +19,11 @@ const QuienesSomos = () => {
               />
             </Link>
           </div>
-          <h1 className="font-Amatic hover:text-teal-400 lg:text-8xl md:text-6xl font-black mt-10 text-5xl">
+          <h1 className="font-Amatic hover:text-slate-700 lg:text-8xl md:text-6xl font-black mt-10 text-5xl">
             Quienes Somos
           </h1>
 
-          <div className="grid grid-cols-1 gap-6 text-center hover:text-teal-400 text-white px-12 md:px-12 rounded-2xl mb-20 mt-16">
+          <div className="grid grid-cols-1 gap-6 text-center text-white px-12 md:px-12 rounded-2xl mb-20 mt-16">
             <Persona />
           </div>
         </div>

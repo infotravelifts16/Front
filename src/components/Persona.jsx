@@ -7,7 +7,7 @@ const Persona = () => {
   return (
     <section className="mb-20 text-gray-700">
       <div className="text-center md:max-w-xl lg:max-w-3xl mx-auto">
-        <p className="font-Amatic xl:text-5xl md:text-5xl text-2xl mt-6 mb-6 pb-2 md:mb-12 md:pb-0 text-center hover:text-teal-300 text-black font-normal hover:font-bold">
+        <p className="font-Amatic xl:text-5xl md:text-5xl text-2xl mt-6 mb-6 pb-2 md:mb-12 md:pb-0 text-cente text-black font-normal hover:font-bold">
           Somos un equipo de compañeros del Instituto de Formación Técnica
           Superior N°16.
           <br />
@@ -16,10 +16,10 @@ const Persona = () => {
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-6 text-center">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 text-center">
         {/* INICIO ---------- Integrante: Oscar Bejar */}
         <div>
-          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90">
+          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90 2xl:w-80">
             <div
               className="overflow-hidden rounded-t-lg h-28"
               style={{ backgroundColor: "#34d399" }}
@@ -66,9 +66,9 @@ const Persona = () => {
 
         {/* INICIO ---------- Integrante: Stefania Rojas */}
         <div>
-          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90">
+          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90 2xl:w-80">
             <div
-              className="overflow-hidden rounded-t-lg h-28"
+              className="overflow-hidden rounded-t-lg 2xl:h-32 xl:h-24 h-28"
               style={{ backgroundColor: "#f0abfc" }}
             ></div>
             <div className="w-24 -mt-12 overflow-hidden  border-2 border-white rounded-full mx-auto bg-white">
@@ -112,7 +112,7 @@ const Persona = () => {
 
         {/* INICIO ---------- Integrante: Matias Minig */}
         <div>
-          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90">
+          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90 2xl:w-80">
             <div
               className="overflow-hidden rounded-t-lg h-28"
               style={{ backgroundColor: "#0e7490" }}
@@ -157,8 +157,8 @@ const Persona = () => {
         {/* Fin--------- Integrante: Matias Minig */}
 
         {/* INICIO ---------- Integrante: Leandro Campolongo */}
-        <div>
-          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90">
+        {/* <div>
+          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90 2xl:w-80">
             <div
               className="overflow-hidden rounded-t-lg h-28"
               style={{ backgroundColor: "#38bdf8" }}
@@ -202,14 +202,14 @@ const Persona = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* Fin--------- Integrante: Leandro Campolongo */}
 
         {/* INICIO ---------- Integrante: Maximiliano Ramos */}
         <div>
-          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90">
+          <div className="block rounded-lg shadow-lg bg-white hover:opacity-90 2xl:w-80">
             <div
-              className="overflow-hidden rounded-t-lg h-28"
+              className="overflow-hidden rounded-t-lg xl:h-20 2xl:h-28 h-28"
               style={{ backgroundColor: "#93c5fd" }}
             ></div>
             <div className="w-24 -mt-12 overflow-hidden  border-2 border-white rounded-full mx-auto bg-white">
@@ -239,7 +239,7 @@ const Persona = () => {
               </p>
 
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/maximiliano-ramos-2bb4981b4/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
