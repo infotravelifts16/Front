@@ -1,0 +1,50 @@
+{
+    "resources": [
+      {
+        "title": "San Salvador de Jujuy",
+        "link": "http://jujuy.gob.ar/home/",
+        "imageUrl": "img/jujuy2.jpg"
+      },
+      {
+        "title": "San Carlos de Bariloche",
+        "link": "https://barilocheturismo.gob.ar/es/home",
+        "imageUrl": "img/bariloche1.jpg"
+      },
+      {
+        "title": "San Martin de los Andes",
+        "link": "http://www.sanmartindelosandes.gov.ar/",
+        "imageUrl": "img/sanMartin.jpg"
+      },
+      {
+        "title": "Puerto Iguazú",
+        "link": "https://www.iguazu.gob.ar/",
+        "imageUrl": "img/iguazu.jpg"
+      },
+      {
+        "title": "Mendoza",
+        "link": "https://www.iguazu.gob.ar/",
+        "imageUrl": "img/mendoza1.jpg"
+      },
+      {
+        "title": "Cordoba",
+        "link": "https://es.wikipedia.org/wiki/C%C3%B3rdoba_(Argentina)",
+        "imageUrl": "img/cordoba.jpg"
+      },
+      {
+        "title": "Tierra del Fuego",
+        "link": "https://tierraturismo.com/?gclid=CjwKCAjwvsqZBhAlEiwAqAHElZL_LydHdJ7AD2hqrEV_lSiHIAetjFux33Vpt1knPM4JI-LFfjPRhBoCD30QAvD_BwE",
+        "imageUrl": "img/tierra-del-fuego2.jpg"
+      },
+      {
+        "title": "Salta",
+        "link": "http://www.turismosalta.gov.ar/",
+        "imageUrl": "img/salta.jpg"
+      },
+      {
+        "title": "Chalten",
+        "link": "https://elchalten.com/index.php",
+        "imageUrl": "img/chalten.jpg"
+      }
+    ]
+  }
+  

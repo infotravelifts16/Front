@@ -18,3 +18,4 @@ npm i --save @fortawesome/react-fontawesome@latest
 o este entero:
 npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons
 
+npm i react-iframe
