@@ -7,9 +7,8 @@ const MixImagen = () => {
         <section className="overflow-hidden text-gray-700">
           <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
             <div className="flex flex-wrap mt-6 md:mt-5 p-2">
-              <h2 className="text-5xl  font-bold mb-12 2xl:text-center text-center font-Amatic">
-                Mendoza,Jujuy,Bariloche,Ushuaia algunas provincias que podes
-                conocer y disfrutar
+              <h2 className="text-5xl  font-bold mt-20 2xl:text-center text-center font-Amatic">
+                Mendoza,Jujuy,Bariloche,Ushuaia para conocer
               </h2>
               <div className="flex flex-wrap w-1/2">
                 <div className="w-1/2 p-1 md:p-2">
@@ -67,7 +66,7 @@ const MixImagen = () => {
         <section className="overflow-hidden text-gray-700">
           <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
             <div className="flex flex-wrap mt-6 md:mt-5 p-2">
-              <h2 className="text-5xl  font-bold mb-12 2xl:text-center text-center font-Amatic">
+              <h2 className="text-5xl  font-bold mt-20 2xl:text-center text-center font-Amatic">
                 Salta,Calafate,Iguazú,Cordoba y mucho mas...
               </h2>
               <div className="flex flex-wrap w-1/2">

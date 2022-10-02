@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import Info from "../components/Info";
 import Video from "../components/Video";
 import MixImagen from "../components/MixImagen";
+import Card from "../components/Card";
 /* import CrearCuenta from '../modules/CrearCuenta'; */
 
 
@@ -15,6 +16,7 @@ const PaginaPrincipal = () => {
     <NavBar />
     <Hero /> 
     <MixImagen/>
+    <Card/>
     <Info/>
     <Video/>
     </>
