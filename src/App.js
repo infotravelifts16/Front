@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from './components/Footer';
+import NavBar from "../src/components/NavBar";
 import PaginaPrincipal from "./pages/PaginaPrincipal";
 import CrearCuenta from "./pages/CrearCuenta";
 import IniciarSesion from "./pages/IniciarSesion";
@@ -15,6 +16,7 @@ import NotFoundPage from './pages/NotFoundPage';
 const App = () => {
   return (
     <BrowserRouter>
+    <NavBar />
       <Routes>
         <Route path="/" element={<PaginaPrincipal />} />
         <Route path="/CrearCuenta" element={<CrearCuenta />} />
