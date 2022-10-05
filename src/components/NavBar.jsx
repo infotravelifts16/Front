@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import {NavLink, Link} from 'react-router-dom';
+import { Link , useLocation } from 'react-router-dom';
 
 
 const NavBar = () => {  
   const [isMenuActive, setIsMenuActive] = useState(false)
+  const location = useLocation()
  
   return (
     <>
@@ -18,12 +19,12 @@ const NavBar = () => {
             <path d="M8.4 12H2.8L1 15H0V5h1l1.8 3h5.6L6 0h2l4.8 8H18a2 2 0 1 1 0 4h-5.2L8 20H6l2.4-8z" />
           </svg>
 
-          <NavLink 
+          <Link 
             to="/"
             className="font-Amatic text-4xl hover:text-teal-200 tracking-tight ml-4 cursor-pointer"
           >
             Infotravel
-          </NavLink>
+          </Link>
         </div>
         <div className="block lg:hidden">
           <button
@@ -47,46 +48,46 @@ const NavBar = () => {
           <div className="lg:flex-grow text-center text-2xl">
             <Link
               to="/QuienesSomos"
-              className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-teal-200 mr-4"
+              className={`${location.pathname === '/QuienesSomos' ? 'text-teal-300' : 'text-white'} font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-teal-200 mr-4 `}
             >
               Quienes Somos
             </Link>
            
             <Link
               to="/Promociones"
-              className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4"
+              className={`${location.pathname === '/Promociones' ? 'text-teal-300' : 'text-white'} font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-teal-200 mr-4 `}
             >
               Promociones
             </Link>
             <Link
               to="/Contacto"
-              className="font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200"
+              className={`${location.pathname === '/Contacto' ? 'text-teal-300' : 'text-white'} font-Amatic block mt-4 lg:inline-block lg:mt-0 text-white  hover:text-teal-200 mr-4 `}
             >
               Contacto 
             </Link>
           </div>
           <div className="font-Amatic text-lg text-center flex flex-col lg:flex-row">
             
-            <NavLink to="/IniciarSesion">
+            <Link to="/IniciarSesion">
             <div>
               <button
                 type="submit"
-                className="inline-block text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+                className={` ${location.pathname === '/IniciarSesion' ? 'text-teal-500 bg-white' : 'text-white'} inline-block text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 `}
               >
                 Iniciar Sesión
               </button>
             </div>
-            </NavLink>
-            <NavLink to="/CrearCuenta">
+            </Link>
+            <Link to="/CrearCuenta">
             <div className="ml-5">
               <button
                 type="submit"
-                className="inline-block text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+                className={` ${location.pathname === '/CrearCuenta' ? 'text-teal-500 bg-white' : 'text-white'} inline-block text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 `}
               >
-                Registrarse
+                Crear Cuenta
               </button>
             </div>
-            </NavLink>
+            </Link>
           </div>
         </div>
       </nav>

@@ -5,7 +5,7 @@ const info = () => {
     <>
       <div className="container my-24 px-6 mx-auto">
         <section className="mb-32 text-gray-800 text-center md:text-left">
-          <h2 className="text-5xl  font-bold mt-20 2xl:text-center text-center font-Amatic">
+          <h2 className="text-5xl  font-bold mt-20 2xl:text-center text-center font-Amatic mb-10">
             Sitios de Argentina
           </h2>
 
