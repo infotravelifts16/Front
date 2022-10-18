@@ -4,6 +4,7 @@ import Info from "../components/Info";
 import Video from "../components/Video";
 import MixImagen from "../components/MixImagen";
 import Card from "../components/Card";
+import Testimonials from "../components/Testimonials";
 /* import CrearCuenta from '../modules/CrearCuenta'; */
 
 
@@ -16,6 +17,7 @@ const PaginaPrincipal = () => {
     <MixImagen/>
     <Card/>
     <Info/>
+    <Testimonials/>
     <Video/>
     </>
   );
