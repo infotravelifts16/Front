@@ -1,7 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const FormRecuperarClave = () => {
+  // Formulario y validacion con formik y Yup
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("El email no es válido")
+        .required("El Email es Obligatorio"),
+    }),
+    onSubmit: (valores) => {
+      console.log(valores);
+    },
+  });
+
   return (
     <>
       <div className="xl:h-screen lg:h-auto">
@@ -12,15 +29,27 @@ const FormRecuperarClave = () => {
                 src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                 className="w-full"
                 aria-hidden
-                alt="Picture of me taking a photo of an image"   
+                alt="Picture of me taking a photo of an image"
               />
             </div>
 
             <div className="p-6 rounded-lg shadow-lg bg-white max-w-md  flex justify-end lg:mt-8 md:mt-5">
-              <form>
+              {/* Formulario */}
+              <form onSubmit={formik.handleSubmit}>
                 <div className="form-group mb-6 lg:w-80 sm:w-44">
+                  {/* Mensaje de Error en Email incompleto */}
+                  {formik.touched.email && formik.errors.email ? (
+                    <div className="my-2 bg-gray-200 border-l-4 border-red-500 text-red-700 p-4">
+                      <p className="font-bold">Error</p>
+                      <p>{formik.errors.email}</p>
+                    </div>
+                  ) : null}
+                  {/* Cierre de Mensaje Error */}
                   <input
                     type="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange} // Este evento le coloca formik al state el valor que escribe el usuario.
+                    onBlur={formik.handleBlur} // Evento que avisa si el input quedo vacio.
                     className="form-control block
         w-full
         px-3

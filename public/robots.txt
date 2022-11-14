@@ -10,6 +10,9 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 npm install framer-motion
 
+Para instalar styled components ( sirve para dar estilos a cada componente.)
+npm install --save styled-components
+
 Instalo iconos de fontawesome
 npm i --save @fortawesome/fontawesome-svg-core
 npm i --save @fortawesome/free-solid-svg-icons
@@ -19,3 +22,6 @@ o este entero:
 npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons
 
 npm i react-iframe
+
+Para instalar la validacion de formularios Formik con yup(parecido a express validator):
+npm i formik yup
