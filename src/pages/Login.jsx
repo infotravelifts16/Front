@@ -1,7 +1,7 @@
 import React from 'react'
 import FormInicioSesion from '../components/FormInicioSesion';
 
-const IniciarSesion = () => {
+const Login = () => {
   return (
     <>
         <div
@@ -20,4 +20,4 @@ const IniciarSesion = () => {
   )
 }
 
-export default IniciarSesion
+export default Login

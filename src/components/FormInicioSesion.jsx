@@ -107,7 +107,7 @@ const FormInicioSesion = () => {
                     </div>
 
                     <a
-                      href="/RecuperarClave"
+                      href="/olvide-password"
                       className="text-white font-bold mr-2"
                     >
                       Ha olvidado su contraseña?{" "}

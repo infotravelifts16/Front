@@ -68,21 +68,21 @@ const NavBar = () => {
           </div>
           <div className="font-Amatic text-lg text-center flex flex-col lg:flex-row">
             
-            <Link to="/IniciarSesion">
+            <Link to="/Login">
             <div>
               <button
                 type="submit"
-                className={` ${location.pathname === '/IniciarSesion' ? 'text-teal-500 bg-white' : 'text-white'} inline-block text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 `}
+                className={` ${location.pathname === '/Login' ? 'text-teal-500 bg-white' : 'text-white'} inline-block text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 `}
               >
                 Iniciar Sesión
               </button>
             </div>
             </Link>
-            <Link to="/CrearCuenta">
+            <Link to="/Registrar">
             <div className="ml-5">
               <button
                 type="submit"
-                className={` ${location.pathname === '/CrearCuenta' ? 'text-teal-500 bg-white' : 'text-white'} inline-block text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 `}
+                className={` ${location.pathname === '/Registrar' ? 'text-teal-500 bg-white' : 'text-white'} inline-block text-xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0 `}
               >
                 Crear Cuenta
               </button>
