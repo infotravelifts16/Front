@@ -1,41 +1,59 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import Alerta from "./Alerta";
+import axios from 'axios';
+
 
 function FormRegistro() {
-  /*  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState(false);
- */
+  const [alerta, setAlerta] = useState({});
 
-  // Formulario y validacion con formik y Yup
-  const formik = useFormik({
-    initialValues: {
-      nombre: "",
-      apellido: "",
-      email: "",
-      password: "",
-    },
-    validationSchema: Yup.object({
-      nombre: Yup.string().required("El Nombre es Obligatorio"),
-      apellido: Yup.string().required("El Apellido es Obligatorio"),
-      email: Yup.string()
-        .email("El email no es válido")
-        .required("El Email es Obligatorio"),
-      password: Yup.string()
-                    .required('El password no puede ir vacio')
-                    .min(6, 'El password debe contener al menos 6 caracteres')
-    }),
-    onSubmit: (valores) => {
-      console.log(valores);
-    },
-  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
- 
+    // validar campos completos
+    if ([nombre, apellido, email, password].includes("")) {
+      setAlerta({
+        msg: "Todos los campos son obligatorios",
+        error: true,
+      });
+      return;
+    }
+
+    // Validar que el password tenga minimo 6 caracteres
+     if (password.length < 6) {
+      setAlerta({
+        msg: "El password es muy corto, agrega minimo 6 caracteres",
+        error: true,
+      });
+      return;
+    }
+
+    setAlerta({})
+    // Crear el usuario en la API
+    try {
+      const {data} = await axios.post(`${process.env.REACT_APP_BACK_URL}/api/usuarios`, {nombre, apellido, email, password })
+      
+      setAlerta({
+        msg: data.msg,
+        error: false
+      })
+      setNombre('')
+      setApellido('')
+      setEmail('')
+      setPassword('')
+    } catch (error) {
+      setAlerta({
+        msg: error.response.data.msg,
+        error: true
+      })
+    }
+  };
+
+  const { msg } = alerta;
 
   return (
     <div className="xl:h-screen lg:h-auto">
@@ -52,32 +70,18 @@ function FormRegistro() {
 
           <div className="p-6 rounded-lg shadow-lg bg-white max-w-md  flex justify-end lg:mt-8 md:mt-5">
             {/* Formulario */}
-            <form onSubmit={formik.handleSubmit}>
-              {/* Mensaje de Error en nombre incompleto */}
-              {formik.touched.nombre && formik.errors.nombre ? (
-                <div className="my-2 bg-gray-200 border-l-4 border-red-500 text-red-700 p-4">
-                  <p className="font-bold">Error</p>
-                  <p>{formik.errors.nombre}</p>
-                </div>
-              ) : null}
-              {/* Cierre de Mensaje Error */}
-
-              {/* Mensaje de Error en Apellido incompleto */}
-              {formik.touched.apellido && formik.errors.apellido ? (
-                <div className="my-2 bg-gray-200 border-l-4 border-red-500 text-red-700 p-4">
-                  <p className="font-bold">Error</p>
-                  <p>{formik.errors.apellido}</p>
-                </div>
-              ) : null}
-              {/* Cierre de Mensaje Error */}
-
+            <form onSubmit={handleSubmit}>
+              {/* Mensaje de Alerta */}
+              {msg && <Alerta alerta={alerta} />}
               <div className="grid grid-cols-2 gap-4 mt-8">
                 <div className="form-group mb-6">
                   <input
+                    id="nombre"
                     type="text"
-                    value={formik.values.nombre}
-                    onChange={formik.handleChange} // Este evento le coloca formik al state el valor que escribe el usuario.
-                    onBlur={formik.handleBlur} // Evento que avisa si el input quedo vacio.
+                    placeholder="Nombre"
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
+                    aria-describedby="nombre"
                     className="form-control
           block
           w-full
@@ -93,18 +97,16 @@ function FormRegistro() {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    id="nombre"
-                    aria-describedby="nombre"
-                    placeholder="Nombre"
-                    // onChange={(e) => setFname(e.target.value)}
                   />
                 </div>
                 <div className="form-group mb-6">
                   <input
                     type="text"
-                    value={formik.values.apellido}
-                    onChange={formik.handleChange} // Este evento le coloca formik al state el valor que escribe el usuario.
-                    onBlur={formik.handleBlur} // Evento que avisa si el input quedo vacio.
+                    id="apellido"
+                    aria-describedby="apellido"
+                    placeholder="Apellido"
+                    value={apellido}
+                    onChange={(e) => setApellido(e.target.value)}
                     className="form-control
           block
           w-full
@@ -120,19 +122,16 @@ function FormRegistro() {
           ease-in-out
           m-0
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    id="apellido"
-                    aria-describedby="apellido"
-                    placeholder="Apellido"
-                    //onChange={(e) => setLname(e.target.value)}
                   />
                 </div>
               </div>
               <div className="form-group mb-6">
                 <input
                   type="email"
-                  value={formik.values.email}
-                  onChange={formik.handleChange} // Este evento le coloca formik al state el valor que escribe el usuario.
-                  onBlur={formik.handleBlur} // Evento que avisa si el input quedo vacio.
+                  id="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="form-control block
         w-full
         px-3
@@ -147,25 +146,15 @@ function FormRegistro() {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  id="email"
-                  placeholder="Email"
-                  //onChange={(e) => setEmail(e.target.value)}
                 />
-                {/* Mensaje de Error en Email incompleto */}
-                {formik.touched.email && formik.errors.email ? (
-                  <div className="my-2 bg-gray-200 border-l-4 border-red-500 text-red-700 p-4">
-                    <p className="font-bold">Error</p>
-                    <p>{formik.errors.email}</p>
-                  </div>
-                ) : null}
-                {/* Cierre de Mensaje Error */}
               </div>
               <div className="form-group mb-6">
                 <input
                   type="password"
-                  value={formik.values.password}
-                  onChange={formik.handleChange} // Este evento le coloca formik al state el valor que escribe el usuario.
-                  onBlur={formik.handleBlur} // Evento que avisa si el input quedo vacio.
+                  id="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="form-control block
         w-full
         px-3
@@ -180,18 +169,7 @@ function FormRegistro() {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  id="password"
-                  placeholder="Password"
-                  // onChange={(e) => setPassword(e.target.value)}
                 />
-                {/* Mensaje de password incompleto */}
-                {formik.touched.password && formik.errors.password ? (
-                  <div className="my-2 bg-gray-200 border-l-4 border-red-500 text-red-700 p-4">
-                    <p className="font-bold">Error</p>
-                    <p>{formik.errors.password}</p>
-                  </div>
-                ) : null}
-                {/* Cierre de Mensaje Error */}
               </div>
 
               <button
@@ -215,7 +193,7 @@ function FormRegistro() {
       duration-150
       ease-in-out"
               >
-                Registrarse
+                Crear Cuenta
               </button>
 
               <Link to="/">

@@ -1,7 +1,7 @@
 import React from "react";
 import FormRegistro from "../components/FormRegistro";
 
-const CrearCuenta = () => {
+const Registrar = () => {
   return (
     <>
       <div
@@ -20,4 +20,4 @@ const CrearCuenta = () => {
   );
 };
 
-export default CrearCuenta;
+export default Registrar;

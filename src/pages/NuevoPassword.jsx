@@ -1,22 +1,22 @@
 import React from "react";
-import FormRecuperarClave from "../components/FormRecuperarClave";
+import FormReestablecerPassword from "../components/FormReestablecerPassword";
 
-const RecuperarClave = () => {
+const NuevoPassword = () => {
   return (
     <>
       <div
         className="bg-cover bg-no-repeat bg-center  xl:h-full lg:h-full md:h-full"
-        style={{ backgroundImage: "url('img/viaje11.png')" }}
+        style={{ backgroundImage: "url('img/jujuy2.jpg')"}}
       >
         <div className="grid grid-cols-1 text-center text-white px-12 md:px-12">
           <h1 className="font-Amatic text-8xl font-black mt-10">
-            Recupera Tu Acceso
+            Reestablece Tu Password
           </h1>
         </div>
-        <FormRecuperarClave />
+        <FormReestablecerPassword />
       </div>
     </>
   );
 };
 
-export default RecuperarClave;
+export default NuevoPassword;

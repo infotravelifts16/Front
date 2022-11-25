@@ -24,4 +24,10 @@ npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icon
 npm i react-iframe
 
 Para instalar la validacion de formularios Formik con yup(parecido a express validator):
-npm i formik yup
+npm i formik yup 
+
+Para conectarme con el Back mas las rutas
+npm i axios react-router-dom
+
+npm install dotenv
+
