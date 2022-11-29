@@ -1,23 +1,41 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import Alerta from "./Alerta";
+import { useState } from "react";
+import clienteAxios from "../config/clienteAxios";
 
 const FormRecuperarClave = () => {
-  // Formulario y validacion con formik y Yup
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email("El email no es válido")
-        .required("El Email es Obligatorio"),
-    }),
-    onSubmit: (valores) => {
-      console.log(valores);
-    },
-  });
+  
+  const [email, SetEmail] = useState('');
+  const [alerta, setAlerta] = useState({})
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    if(email === '' || email.length < 6) {
+      setAlerta({
+        msg: 'El Email es obligatorio',
+        error: true
+      });
+      return
+    }
+
+    try {
+      const { data } = await clienteAxios.post(`/usuarios/olvide-password`, { email })
+      setAlerta({
+        msg: data.msg,
+        error: false
+      })
+
+    } catch (error) {
+      setAlerta({
+        msg: error.response.data.msg,
+        error: true
+      })
+    }
+  }
+
+  const { msg } = alerta;
 
   return (
     <>
@@ -32,24 +50,18 @@ const FormRecuperarClave = () => {
                 alt="Picture of me taking a photo of an image"
               />
             </div>
-
+             
             <div className="p-6 rounded-lg shadow-lg bg-white max-w-md  flex justify-end lg:mt-8 md:mt-5">
               {/* Formulario */}
-              <form onSubmit={formik.handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group mb-6 lg:w-80 sm:w-44">
-                  {/* Mensaje de Error en Email incompleto */}
-                  {formik.touched.email && formik.errors.email ? (
-                    <div className="my-2 bg-gray-200 border-l-4 border-red-500 text-red-700 p-4">
-                      <p className="font-bold">Error</p>
-                      <p>{formik.errors.email}</p>
-                    </div>
-                  ) : null}
-                  {/* Cierre de Mensaje Error */}
+                { msg && <Alerta alerta={alerta} />}
                   <input
                     type="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange} // Este evento le coloca formik al state el valor que escribe el usuario.
-                    onBlur={formik.handleBlur} // Evento que avisa si el input quedo vacio.
+                    id="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={ e => SetEmail(e.target.value)}
                     className="form-control block
         w-full
         px-3
@@ -64,8 +76,7 @@ const FormRecuperarClave = () => {
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    id="email"
-                    placeholder="Email"
+                    
                   />
                 </div>
                 <button
