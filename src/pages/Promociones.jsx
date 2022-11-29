@@ -1,3 +1,4 @@
+import Card from "../components/Card";
 
 
 
@@ -12,6 +13,7 @@ const Promociones = () => {
           <h1 className="font-Amatic hover:text-teal-400 text-6xl font-black mt-10">
             Promociones
           </h1>
+          <Card/>
         </div>
       </div>
     </>

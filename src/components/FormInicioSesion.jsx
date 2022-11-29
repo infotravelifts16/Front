@@ -1,26 +1,46 @@
-import React from "react";
+import {useState} from "react";
 import { NavLink } from "react-router-dom";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import Alerta from "./Alerta";
+import clienteAxios from "../config/clienteAxios";
+import useAuth from "../hooks/useAuth";
+
+
 
 const FormInicioSesion = () => {
-  // Formulario y validacion con formik y Yup
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email("El email no es válido")
-        .required("El Email es Obligatorio"),
-      password: Yup.string()
-        .required("El password no puede ir vacio")
-    }),
-    onSubmit: (valores) => {
-      console.log(valores);
-    },
-  });
+ 
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [alerta, setAlerta] = useState({})
+
+  const { setAuth } = useAuth();
+
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    if([email, password].includes('')) {
+      setAlerta({
+        msg: 'Todos los campos son requeridos',
+        error: true
+      });
+      return
+    }
+
+    try {
+      const { data} = await clienteAxios.post('/usuarios/login', { email, password})
+      setAlerta({})
+      localStorage.setItem('token', data.token)
+      setAuth(data)
+    } catch (error) {
+      setAlerta({
+        msg: error.response.data.msg,
+        error: true
+      })
+    }
+  }
+
+  const { msg } = alerta
+
   return (
     <>
       <section className="h-screen">
@@ -36,8 +56,9 @@ const FormInicioSesion = () => {
             </div>
             <div className="xl:ml-20 px-4 sm:mt-6 xl:mt-0 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0 rounded-3xl bg-[#0182c733]">
               <div>
+              {msg && <Alerta alerta={alerta} />}
                 {/* Formulario */}
-                <form onSubmit={formik.handleSubmit}>
+                <form onSubmit={handleSubmit}>
                   <div className="flex flex-row items-center justify-center lg:justify-start mr-3">
                     <p className="text-6xl xl:mt-2 xl:ml-6 font-bold text-white  uppercase font-Amatic">
                       Iniciar Sesión:
@@ -53,42 +74,26 @@ const FormInicioSesion = () => {
                   <div className="mb-6">
                     <input
                       type="email"
-                      value={formik.values.email}
-                      onChange={formik.handleChange} // Este evento le coloca formik al state el valor que escribe el usuario.
-                      onBlur={formik.handleBlur} // Evento que avisa si el input quedo vacio.
+                      value={email}
+                      onChange={ e => setEmail(e.target.value)}
                       className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="email"
                       placeholder="Email"
                     />
-                    {/* Mensaje de Error en Email incompleto */}
-                    {formik.touched.email && formik.errors.email ? (
-                      <div className="my-2 bg-gray-200 border-l-4 border-red-500 text-red-700 p-4">
-                        <p className="font-bold">Error</p>
-                        <p>{formik.errors.email}</p>
-                      </div>
-                    ) : null}
-                    {/* Cierre de Mensaje Error */}
+                    
                   </div>
 
                   {/* <!-- Password input --> */}
                   <div className="mb-6">
                     <input
                       type="password"
-                      value={formik.values.password}
-                      onChange={formik.handleChange} // Este evento le coloca formik al state el valor que escribe el usuario.
-                      onBlur={formik.handleBlur} // Evento que avisa si el input quedo vacio.
+                      value={password}
+                      onChange={ e => setPassword(e.target.value)}
                       className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="password"
                       placeholder="Password"
                     />
-                    {/* Mensaje de password incompleto */}
-                    {formik.touched.password && formik.errors.password ? (
-                      <div className="my-2 bg-gray-200 border-l-4 border-red-500 text-red-700 p-4">
-                        <p className="font-bold">Error</p>
-                        <p>{formik.errors.password}</p>
-                      </div>
-                    ) : null}
-                    {/* Cierre de Mensaje Error */}
+                    
                   </div>
 
                   <div className="flex justify-between items-center mb-6">
