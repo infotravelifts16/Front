@@ -20,7 +20,7 @@ const Hero = () => {
             <div className="text-center text-white px-6 md:px-12">
               <h1 className="font-Amatic hover:text-teal-400 text-7xl font-black mt-0 mb-6">Bienvenidos a Infotravel</h1>
               <h3 className=" font-Amatic hover:text-teal-400 text-4xl font-black mb-8">Un Sitio para Disfrutar de Hermosos y Sorprendentes Lugares</h3>
-              <Link to="/CrearCuenta">
+              <Link to="/Login">
               <button
                 type="button"
                 className="inline-block px-6 py-2.5 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"

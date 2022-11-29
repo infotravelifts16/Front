@@ -1,7 +1,7 @@
 import React from "react";
 import FormRecuperarClave from "../components/FormRecuperarClave";
 
-const RecuperarClave = () => {
+const OlvidePassword = () => {
   return (
     <>
       <div
@@ -19,4 +19,4 @@ const RecuperarClave = () => {
   );
 };
 
-export default RecuperarClave;
+export default OlvidePassword;

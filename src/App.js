@@ -5,7 +5,7 @@ import NavBar from "../src/components/NavBar";
 import PaginaPrincipal from "./pages/PaginaPrincipal";
 import Registrar from "./pages/Registrar";
 import Login from "./pages/Login";
-import RecuperarClave from "./pages/RecuperarClave";
+import OlvidePassword from "./pages/OlvidePassword";
 import QuienesSomos from "./pages/QuienesSomos";
 import Promociones from "./pages/Promociones";
 import Contacto from "./pages/Contacto";
@@ -13,6 +13,7 @@ import NotFoundPage from './pages/NotFoundPage';
 /* import AuthLayout from "./layouts/AuthLayout"; */
 import NuevoPassword from "./pages/NuevoPassword";
 import ConfirmarCuenta from "./pages/ConfirmarCuenta";
+
 
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
         <Route path="/" element={<PaginaPrincipal />}/>
               <Route path="Login" element={<Login />} />
               <Route path="Registrar" element={<Registrar />} />
-              <Route path="olvide-password" element={<RecuperarClave />} />
+              <Route path="olvide-password" element={<OlvidePassword />} />
               <Route path="olvide-password/:token" element={<NuevoPassword />} />
               <Route path="confirmar/:id" element={<ConfirmarCuenta />} />
         
